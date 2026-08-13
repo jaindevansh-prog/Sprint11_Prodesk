@@ -97,7 +97,7 @@ const path = require('path');
 // Serve React static build files
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-// Catch-all handler for React routing
-app.get('*', (req, res) => {
+// Catch-all handler for React routing (Express v5 compatible)
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
