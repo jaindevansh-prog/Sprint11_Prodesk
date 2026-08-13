@@ -90,13 +90,5 @@ app.delete('/api/items/:id', async (req, res) => {
   }
 });
 
-// Serve React static build files
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// Catch-all route using app.use (Zero routing errors in Express 5)
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-});
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
